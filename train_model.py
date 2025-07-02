@@ -2,12 +2,16 @@
 
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
+import joblib
 
-# Load data
+# Load the dataset
 X, y = load_iris(return_X_y=True)
 
-# Train model
+# Train the model
 clf = LogisticRegression(max_iter=200)
 clf.fit(X, y)
 
-print("Model trained")
+# Save the trained model
+joblib.dump(clf, 'model.pkl')
+
+print("✅ Model trained and saved as model.pkl")
